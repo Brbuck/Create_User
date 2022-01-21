@@ -1,23 +1,37 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { useForm } from "react-hook-form";
 
+import { useAuth } from '../../Context/authContext'
 import { Container, Form, Label, EditInput, EditButton, Title, WrapperInput } from './styles';
 
 
 function SignIn() {
+  const { authenticate } = useAuth()
+
+  const { register, handleSubmit } = useForm({
+  });
+
+  async function Login({ email, password }) {
+    try {
+      await authenticate({ email, password })
+    } catch (error) {
+      alert(error);
+    }
+  }
   return (
     <Container>
-      <Form>
+      <Form onSubmit={handleSubmit(Login)}>
         <Title>Log In</Title>
         <WrapperInput>
           <Label>Email</Label>
-          <EditInput focus type='email' placeholder="e-mail" autoFocus  />
+          <EditInput type="email" name="email" {...register("email")} placeholder="e-mail" autoFocus />
         </WrapperInput>
         <WrapperInput>
           <Label>Password</Label>
-          <EditInput type='password' placeholder="password" />
+          <EditInput type="password" name="email" {...register("password")} placeholder="password" />
         </WrapperInput>
-        <EditButton>Sign In</EditButton>
+        <EditButton type="submit">Sign In</EditButton>
         <Link to='#'>Forgot  username or password?</Link>
         <Link to='/signup'>Create your account</Link>
       </Form>

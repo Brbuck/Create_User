@@ -1,11 +1,8 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import axios from 'axios';
 
+import {api} from '../api'
 import { useNavigate } from 'react-router-dom'
 
-const api = axios.create({
-    baseURL: 'http://localhost:3000/'
-})
 
 export const AuthContext = createContext({})
 
