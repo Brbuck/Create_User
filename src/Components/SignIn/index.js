@@ -19,7 +19,7 @@ function SignIn() {
         </WrapperInput>
         <EditButton>Sign In</EditButton>
         <Link to='#'>Forgot  username or password?</Link>
-        <Link to='#'>Create your account</Link>
+        <Link to='/signup'>Create your account</Link>
       </Form>
     </Container>
   );
