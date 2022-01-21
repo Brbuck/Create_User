@@ -25,11 +25,11 @@ function SignIn() {
         <Title>Log In</Title>
         <WrapperInput>
           <Label>Email</Label>
-          <EditInput type="email" name="email" {...register("email")} placeholder="e-mail" autoFocus />
+          <EditInput type="email"  {...register("email")} placeholder="e-mail" autoFocus />
         </WrapperInput>
         <WrapperInput>
           <Label>Password</Label>
-          <EditInput type="password" name="email" {...register("password")} placeholder="password" />
+          <EditInput type="password" name="password" {...register("password")} placeholder="password" />
         </WrapperInput>
         <EditButton type="submit">Sign In</EditButton>
         <Link to='#'>Forgot  username or password?</Link>
