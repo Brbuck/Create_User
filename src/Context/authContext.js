@@ -24,7 +24,6 @@ function AuthProvider({ children }) {
 
             api.get(postUrl).then(response => {
                 setUser(response.data.user)
-                console.log(response.data.user._id)
 
             })
 
