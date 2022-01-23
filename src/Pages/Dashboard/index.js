@@ -1,15 +1,14 @@
 import React from 'react';
 import { useAuth } from '../../Context/authContext'
 
+import { Container } from './styles'
+
 function Dashboard() {
-    const {user, logOut} = useAuth()
+  const { user } = useAuth()
   return (
-      <div style={{margin: '200px 200px'}}>
-          <span>Dashboard</span>
-          <span>{user?.name}</span>
-          <span>{user?._id}</span>
-         <button onClick={logOut}>Sair</button>
-      </div>
+    <Container>
+      <h1>Bem vindo novamente {user?.name}</h1>
+    </Container>
   );
 }
 
