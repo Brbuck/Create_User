@@ -1,16 +1,6 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
 import Button from '../Button'
-
-const LogoSpin = keyframes`  
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-  
-`;
 
 export const Container = styled.header`
     width: 100%;
@@ -26,8 +16,6 @@ export const Container = styled.header`
 
 export const Logo = styled.img`
     width: 50px;
-    animation: ${LogoSpin} infinite 15s linear;
-    
 `
 
 export const Navigation = styled.nav`

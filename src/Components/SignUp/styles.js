@@ -84,6 +84,10 @@ export const WrapperInput = styled.div`
             }
         }
     }
+
+    p{
+        color: red;
+    }
     
 `;
 

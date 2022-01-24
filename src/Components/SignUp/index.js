@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
+import { yupResolver } from '@hookform/resolvers/yup';
+
+import {schema} from '../../Schema'
 import {api} from "../../api"
 
 import { Container, Form, Label, EditInput, EditButton, Register, Title, WrapperInput } from './styles';
@@ -9,12 +12,11 @@ import { Container, Form, Label, EditInput, EditButton, Register, Title, Wrapper
 function SignUp() {
     let navigate = useNavigate()
 
-    const { register, handleSubmit } = useForm({
-    });
+    const { register, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(schema) });
 
-    async function registerUser({ name, email, password, confirmpassword}) {
+    async function registerUser({ name, email, password, confirmPassword}) {
         try {
-            await api.post('/auth/register', { name, email, password, confirmpassword})
+            await api.post('/auth/register', { name, email, password, confirmPassword})
               navigate('/signin')
           } catch (error) {
               alert(error.response.data.msg);
@@ -29,18 +31,22 @@ function SignUp() {
                     <WrapperInput>
                         <Label>Name</Label>
                         <EditInput type="text" name="name" {...register("name")} autoFocus />
+                        <p className='errors'>{errors.name?.message}</p>
                     </WrapperInput>
                     <WrapperInput>
                         <Label>Email</Label>
                         <EditInput type="email" name="email" {...register("email")} />
+                        <p className='errors'>{errors.email?.message}</p>
                     </WrapperInput>
                     <WrapperInput>
                         <Label>Password</Label>
                         <EditInput type="password" name="password" {...register("password")} />
+                        <p className='errors'>{errors.password?.message}</p>
                     </WrapperInput>
                     <WrapperInput>
                         <Label>Confirm Password</Label>
-                        <EditInput type="password" name="confirmpassword" {...register("confirmpassword")} />
+                        <EditInput type="password" name="confirmpassword" {...register("confirmPassword")} />
+                        <p className='errors'>{errors.confirmPassword?.message}</p>
                     </WrapperInput>
                     <EditButton type="submit">Sign In</EditButton>
                     <WrapperInput>
