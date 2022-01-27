@@ -1,5 +1,8 @@
 # Sign Up & Sign In
 
+![Captura de tela 2022-01-27 153418](https://user-images.githubusercontent.com/62665590/151422042-97266cbc-09e1-405d-8d4a-d3416bf154a4.png)
+
+
 ## Sobre o Projeto
 
 É uma aplicação (fins de estudo) para pregistrar-se e fazer login, com autenticação de usuário e rotas protegidas para o caso do usuário não esteja autenticado, o mesmo não poderá acessar a aplicação
