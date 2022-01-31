@@ -16,7 +16,7 @@ function SignIn() {
     try {
       await authenticate({ email, password })
     } catch (error) {
-      alert(error);
+      alert(error.response.data.error);
     }
   }
   return (
