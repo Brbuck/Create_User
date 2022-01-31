@@ -10,7 +10,7 @@ function Routers() {
     function PrivateRoute({ children }) {
         const { signed } = useAuth();
         const StorageToken = localStorage.getItem('F:token')
-        return signed || StorageToken ? children : <Navigate to="/login" />;
+        return signed || StorageToken ? children : <Navigate to="/signin" />;
 
     }
 
